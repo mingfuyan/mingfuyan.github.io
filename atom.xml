@@ -156,9 +156,9 @@
     
       <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
     
-      <category term="单调栈" scheme="https://mingfuyan.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
       <category term="2019牛客多校训练赛" scheme="https://mingfuyan.github.io/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
+    
+      <category term="单调栈" scheme="https://mingfuyan.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
     
   </entry>
   
@@ -186,11 +186,11 @@
     
       <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
     
-      <category term="2019牛客多校训练赛" scheme="https://mingfuyan.github.io/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
-    
       <category term="dfs" scheme="https://mingfuyan.github.io/tags/dfs/"/>
     
       <category term="暴力枚举" scheme="https://mingfuyan.github.io/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/"/>
+    
+      <category term="2019牛客多校训练赛" scheme="https://mingfuyan.github.io/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
     
   </entry>
   
