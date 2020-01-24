@@ -567,30 +567,30 @@
   </entry>
   
   <entry>
-    <title>解决爆栈问题，手动加栈</title>
-    <link href="https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3%E7%88%86%E6%A0%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%89%8B%E5%8A%A8%E5%8A%A0%E6%A0%88/"/>
-    <id>https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3%E7%88%86%E6%A0%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%89%8B%E5%8A%A8%E5%8A%A0%E6%A0%88/</id>
+    <title>解决ShadowsocksR 1080 端口被占用问题</title>
+    <link href="https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/"/>
+    <id>https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/</id>
     <published>2020-01-23T13:42:35.014Z</published>
-    <updated>2019-11-03T08:34:10.228Z</updated>
+    <updated>2019-10-16T08:03:58.703Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="解决爆栈问题，手动加栈"><a href="#解决爆栈问题，手动加栈" class="headerlink" title="解决爆栈问题，手动加栈"></a>解决爆栈问题，手动加栈</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker,<span class="meta-string">"/STACK:1024000000,1024000000"</span>)</span></span><br></pre></td></tr></table></figure><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="解决ShadowsocksR-1080-端口被占用问题"><a href="#解决ShadowsocksR-1080-端口被占用问题" class="headerlink" title="解决ShadowsocksR 1080 端口被占用问题"></a>解决ShadowsocksR 1080 端口被占用问题</h3><p>除了系统补丁会保留端口外，开启win10的<code>hyper-v</code>也会保留端口，比如我自己。</p><p>最简单的方法， 找到ssr根目录。 打开 <code>gui-config.json</code>， <img src="http://imglf4.nosdn0.126.net/img/T0t4Z3Z5a254aFFRS09XcGs2V0VOaVEwejNlUW5HU25QYTNmU1FnenZlUHZrNXdFdk9mcHVRPT0.png?imageView&thumbnail=1680x0&quality=96&stripmeta=0" alt="1"></p><p>将 localPort 1080  随便弄一个没保留的端口即可。</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;解决爆栈问题，手动加栈&quot;&gt;&lt;a href=&quot;#解决爆栈问题，手动加栈&quot; class=&quot;headerlink&quot; title=&quot;解决爆栈问题，手动加栈&quot;&gt;&lt;/a&gt;解决爆栈问题，手动加栈&lt;/h3&gt;&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;
+        &lt;h3 id=&quot;解决ShadowsocksR-1080-端口被占用问题&quot;&gt;&lt;a href=&quot;#解决ShadowsocksR-1080-端口被占用问题&quot; class=&quot;headerlink&quot; title=&quot;解决ShadowsocksR 1080 端口被占用问题&quot;&gt;&lt;/a&gt;解决Sha
       
     
     </summary>
     
     
-      <category term="acm小知识" scheme="https://mingfuyan.github.io/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+      <category term="零碎小知识" scheme="https://mingfuyan.github.io/categories/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
     
       <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
     
-      <category term="手动加栈" scheme="https://mingfuyan.github.io/tags/%E6%89%8B%E5%8A%A8%E5%8A%A0%E6%A0%88/"/>
+      <category term="ssr" scheme="https://mingfuyan.github.io/tags/ssr/"/>
     
   </entry>
   
