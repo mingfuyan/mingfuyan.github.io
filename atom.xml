@@ -195,35 +195,6 @@
   </entry>
   
   <entry>
-    <title>做题时文件的读入（c++）</title>
-    <link href="https://mingfuyan.github.io/2020/01/23/%E5%81%9A%E9%A2%98%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%85%A5%EF%BC%88c++%EF%BC%89/"/>
-    <id>https://mingfuyan.github.io/2020/01/23/%E5%81%9A%E9%A2%98%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%85%A5%EF%BC%88c++%EF%BC%89/</id>
-    <published>2020-01-23T13:42:35.092Z</published>
-    <updated>2019-06-16T09:37:12.867Z</updated>
-    
-    <content type="html"><![CDATA[<p>直接看代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    FILE *fp = fopen(<span class="string">"input.txt"</span>, <span class="string">"r"</span>); <span class="comment">// 根据题目中要求的写 有的是text.txt</span></span><br><span class="line">    FILE *fpw = fopen(<span class="string">"output.txt"</span>, <span class="string">"w"</span>);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">-1</span>; <span class="comment">// 第一行特殊就专门输入</span></span><br><span class="line">    <span class="keyword">while</span>(!feof(fp))&#123;  <span class="comment">// 把整个文件一个个读进去</span></span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">-1</span>)  <span class="comment">// 第一行特殊就专门输入</span></span><br><span class="line">            <span class="built_in">fscanf</span>(fp, <span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;K);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">fscanf</span>(fp, <span class="string">"%d%d"</span>, &amp;a[i], &amp;b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 正常主体代码</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 最后输出</span></span><br><span class="line">    <span class="built_in">fprintf</span>(fpw, <span class="string">"%d %d\n"</span>, indx, indy);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;直接看代码：&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
-      
-    
-    </summary>
-    
-    
-      <category term="acm小知识" scheme="https://mingfuyan.github.io/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
-    
-      <category term="小知识" scheme="https://mingfuyan.github.io/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>为萌新准备的如何用codeblocks新建c or c++代码并编译运行</title>
     <link href="https://mingfuyan.github.io/2020/01/23/%E4%B8%BA%E8%90%8C%E6%96%B0%E5%87%86%E5%A4%87%E7%9A%84%E5%A6%82%E4%BD%95%E7%94%A8codeblocks%E6%96%B0%E5%BB%BAc%20or%20c++%E4%BB%A3%E7%A0%81%E5%B9%B6%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/"/>
     <id>https://mingfuyan.github.io/2020/01/23/%E4%B8%BA%E8%90%8C%E6%96%B0%E5%87%86%E5%A4%87%E7%9A%84%E5%A6%82%E4%BD%95%E7%94%A8codeblocks%E6%96%B0%E5%BB%BAc%20or%20c++%E4%BB%A3%E7%A0%81%E5%B9%B6%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/</id>
@@ -250,6 +221,35 @@
       <category term="零碎小知识" scheme="https://mingfuyan.github.io/tags/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
       <category term="codeblocks" scheme="https://mingfuyan.github.io/tags/codeblocks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>做题时文件的读入（c++）</title>
+    <link href="https://mingfuyan.github.io/2020/01/23/%E5%81%9A%E9%A2%98%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%85%A5%EF%BC%88c++%EF%BC%89/"/>
+    <id>https://mingfuyan.github.io/2020/01/23/%E5%81%9A%E9%A2%98%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%85%A5%EF%BC%88c++%EF%BC%89/</id>
+    <published>2020-01-23T13:42:35.092Z</published>
+    <updated>2019-06-16T09:37:12.867Z</updated>
+    
+    <content type="html"><![CDATA[<p>直接看代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    FILE *fp = fopen(<span class="string">"input.txt"</span>, <span class="string">"r"</span>); <span class="comment">// 根据题目中要求的写 有的是text.txt</span></span><br><span class="line">    FILE *fpw = fopen(<span class="string">"output.txt"</span>, <span class="string">"w"</span>);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">-1</span>; <span class="comment">// 第一行特殊就专门输入</span></span><br><span class="line">    <span class="keyword">while</span>(!feof(fp))&#123;  <span class="comment">// 把整个文件一个个读进去</span></span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">-1</span>)  <span class="comment">// 第一行特殊就专门输入</span></span><br><span class="line">            <span class="built_in">fscanf</span>(fp, <span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;K);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">fscanf</span>(fp, <span class="string">"%d%d"</span>, &amp;a[i], &amp;b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 正常主体代码</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 最后输出</span></span><br><span class="line">    <span class="built_in">fprintf</span>(fpw, <span class="string">"%d %d\n"</span>, indx, indy);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;直接看代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
+      
+    
+    </summary>
+    
+    
+      <category term="acm小知识" scheme="https://mingfuyan.github.io/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
+    
+      <category term="小知识" scheme="https://mingfuyan.github.io/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
@@ -536,34 +536,6 @@
   </entry>
   
   <entry>
-    <title>解决ShadowsocksR 1080 端口被占用问题</title>
-    <link href="https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/"/>
-    <id>https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/</id>
-    <published>2020-01-23T13:42:35.014Z</published>
-    <updated>2019-10-16T08:03:58.703Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="解决ShadowsocksR-1080-端口被占用问题"><a href="#解决ShadowsocksR-1080-端口被占用问题" class="headerlink" title="解决ShadowsocksR 1080 端口被占用问题"></a>解决ShadowsocksR 1080 端口被占用问题</h3><p>除了系统补丁会保留端口外，开启win10的<code>hyper-v</code>也会保留端口，比如我自己。</p><p>最简单的方法， 找到ssr根目录。 打开 <code>gui-config.json</code>， <img src="http://imglf4.nosdn0.126.net/img/T0t4Z3Z5a254aFFRS09XcGs2V0VOaVEwejNlUW5HU25QYTNmU1FnenZlUHZrNXdFdk9mcHVRPT0.png?imageView&thumbnail=1680x0&quality=96&stripmeta=0" alt="1"></p><p>将 localPort 1080  随便弄一个没保留的端口即可。</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;解决ShadowsocksR-1080-端口被占用问题&quot;&gt;&lt;a href=&quot;#解决ShadowsocksR-1080-端口被占用问题&quot; class=&quot;headerlink&quot; title=&quot;解决ShadowsocksR 1080 端口被占用问题&quot;&gt;&lt;/a&gt;解决Sha
-      
-    
-    </summary>
-    
-    
-      <category term="零碎小知识" scheme="https://mingfuyan.github.io/categories/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
-    
-      <category term="ssr" scheme="https://mingfuyan.github.io/tags/ssr/"/>
-    
-  </entry>
-  
-  <entry>
     <title>矩形相交问题</title>
     <link href="https://mingfuyan.github.io/2020/01/23/%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%BA%A4%E9%97%AE%E9%A2%98/"/>
     <id>https://mingfuyan.github.io/2020/01/23/%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%BA%A4%E9%97%AE%E9%A2%98/</id>
@@ -591,6 +563,34 @@
       <category term="小技巧" scheme="https://mingfuyan.github.io/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
     
       <category term="矩形相交" scheme="https://mingfuyan.github.io/tags/%E7%9F%A9%E5%BD%A2%E7%9B%B8%E4%BA%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决ShadowsocksR 1080 端口被占用问题</title>
+    <link href="https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/"/>
+    <id>https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/</id>
+    <published>2020-01-23T13:42:35.014Z</published>
+    <updated>2019-10-16T08:03:58.703Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="解决ShadowsocksR-1080-端口被占用问题"><a href="#解决ShadowsocksR-1080-端口被占用问题" class="headerlink" title="解决ShadowsocksR 1080 端口被占用问题"></a>解决ShadowsocksR 1080 端口被占用问题</h3><p>除了系统补丁会保留端口外，开启win10的<code>hyper-v</code>也会保留端口，比如我自己。</p><p>最简单的方法， 找到ssr根目录。 打开 <code>gui-config.json</code>， <img src="http://imglf4.nosdn0.126.net/img/T0t4Z3Z5a254aFFRS09XcGs2V0VOaVEwejNlUW5HU25QYTNmU1FnenZlUHZrNXdFdk9mcHVRPT0.png?imageView&thumbnail=1680x0&quality=96&stripmeta=0" alt="1"></p><p>将 localPort 1080  随便弄一个没保留的端口即可。</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;解决ShadowsocksR-1080-端口被占用问题&quot;&gt;&lt;a href=&quot;#解决ShadowsocksR-1080-端口被占用问题&quot; class=&quot;headerlink&quot; title=&quot;解决ShadowsocksR 1080 端口被占用问题&quot;&gt;&lt;/a&gt;解决Sha
+      
+    
+    </summary>
+    
+    
+      <category term="零碎小知识" scheme="https://mingfuyan.github.io/categories/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
+    
+      <category term="ssr" scheme="https://mingfuyan.github.io/tags/ssr/"/>
     
   </entry>
   
