@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mingfuyan.github.io/"/>
-  <updated>2019-10-06T06:02:07.175Z</updated>
+  <updated>2020-01-24T11:27:25.187Z</updated>
   <id>https://mingfuyan.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于处理博客旧文章的说明</title>
+    <link href="https://mingfuyan.github.io/2020/01/24/%E5%85%B3%E4%BA%8E%E5%A4%84%E7%90%86%E5%8D%9A%E5%AE%A2%E6%97%A7%E6%96%87%E7%AB%A0%E7%9A%84%E8%AF%B4%E6%98%8E/"/>
+    <id>https://mingfuyan.github.io/2020/01/24/%E5%85%B3%E4%BA%8E%E5%A4%84%E7%90%86%E5%8D%9A%E5%AE%A2%E6%97%A7%E6%96%87%E7%AB%A0%E7%9A%84%E8%AF%B4%E6%98%8E/</id>
+    <published>2020-01-24T11:27:46.134Z</published>
+    <updated>2020-01-24T11:27:25.187Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于博客重做， 以前博客的文章显示时间都变成一样的了， 以后这个博客也不会怎么像这样大改了， 毕竟是怀念。</p><a id="more"></a><h3 id="先说以前文章的诟病"><a href="#先说以前文章的诟病" class="headerlink" title="先说以前文章的诟病"></a>先说以前文章的诟病</h3><p>markdown语法不标准</p><p>tags 乱写</p><p>分类也乱写</p><p>题解格式不理想，看起来乱七八糟的</p><h3 id="处理计划"><a href="#处理计划" class="headerlink" title="处理计划"></a>处理计划</h3><p>等着按时间把一些没用的博客， 看着不顺眼的博客， 都给整理一下， 去其糟粕， 取其精华。<br>新年加油。</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，较弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure><pre><code>千万不要图快——如果没有足够的时间用来实践， 那么学得快， 忘得也快。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于博客重做， 以前博客的文章显示时间都变成一样的了， 以后这个博客也不会怎么像这样大改了， 毕竟是怀念。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://mingfuyan.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="随笔" scheme="https://mingfuyan.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>2019牛客国庆集训派对 H-Highway (dijk求树的直径（当然还有更优的）)</title>
@@ -156,9 +179,9 @@
     
       <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
     
-      <category term="2019牛客多校训练赛" scheme="https://mingfuyan.github.io/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
-    
       <category term="单调栈" scheme="https://mingfuyan.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
+      <category term="2019牛客多校训练赛" scheme="https://mingfuyan.github.io/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
     
   </entry>
   
@@ -186,11 +209,11 @@
     
       <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
     
+      <category term="2019牛客多校训练赛" scheme="https://mingfuyan.github.io/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
+    
       <category term="dfs" scheme="https://mingfuyan.github.io/tags/dfs/"/>
     
       <category term="暴力枚举" scheme="https://mingfuyan.github.io/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/"/>
-    
-      <category term="2019牛客多校训练赛" scheme="https://mingfuyan.github.io/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
     
   </entry>
   
@@ -563,34 +586,6 @@
       <category term="小技巧" scheme="https://mingfuyan.github.io/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
     
       <category term="矩形相交" scheme="https://mingfuyan.github.io/tags/%E7%9F%A9%E5%BD%A2%E7%9B%B8%E4%BA%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决ShadowsocksR 1080 端口被占用问题</title>
-    <link href="https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/"/>
-    <id>https://mingfuyan.github.io/2020/01/23/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/</id>
-    <published>2020-01-23T13:42:35.014Z</published>
-    <updated>2019-10-16T08:03:58.703Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="解决ShadowsocksR-1080-端口被占用问题"><a href="#解决ShadowsocksR-1080-端口被占用问题" class="headerlink" title="解决ShadowsocksR 1080 端口被占用问题"></a>解决ShadowsocksR 1080 端口被占用问题</h3><p>除了系统补丁会保留端口外，开启win10的<code>hyper-v</code>也会保留端口，比如我自己。</p><p>最简单的方法， 找到ssr根目录。 打开 <code>gui-config.json</code>， <img src="http://imglf4.nosdn0.126.net/img/T0t4Z3Z5a254aFFRS09XcGs2V0VOaVEwejNlUW5HU25QYTNmU1FnenZlUHZrNXdFdk9mcHVRPT0.png?imageView&thumbnail=1680x0&quality=96&stripmeta=0" alt="1"></p><p>将 localPort 1080  随便弄一个没保留的端口即可。</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;解决ShadowsocksR-1080-端口被占用问题&quot;&gt;&lt;a href=&quot;#解决ShadowsocksR-1080-端口被占用问题&quot; class=&quot;headerlink&quot; title=&quot;解决ShadowsocksR 1080 端口被占用问题&quot;&gt;&lt;/a&gt;解决Sha
-      
-    
-    </summary>
-    
-    
-      <category term="零碎小知识" scheme="https://mingfuyan.github.io/categories/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="acm" scheme="https://mingfuyan.github.io/tags/acm/"/>
-    
-      <category term="ssr" scheme="https://mingfuyan.github.io/tags/ssr/"/>
     
   </entry>
   
