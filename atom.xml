@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://solodance.top/"/>
-  <updated>2020-01-26T03:02:18.047Z</updated>
+  <updated>2020-01-27T11:44:25.049Z</updated>
   <id>https://solodance.top/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>优先队列定义优先级的方法</title>
+    <link href="https://solodance.top/2020/01/27/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%AE%9A%E4%B9%89%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://solodance.top/2020/01/27/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%AE%9A%E4%B9%89%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <published>2020-01-27T11:45:04.425Z</published>
+    <updated>2020-01-27T11:44:25.049Z</updated>
+    
+    <content type="html"><![CDATA[<p>默认优先级是从大到小.</p><a id="more"></a><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最大值优先</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp1</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span> <span class="params">()</span> <span class="params">(<span class="keyword">int</span> &amp;a, <span class="keyword">int</span> &amp;b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a &lt; b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最小值优先</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp2</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span> <span class="params">()</span> <span class="params">(<span class="keyword">int</span> &amp;a, <span class="keyword">int</span> &amp;b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a &gt; b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node1</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node1 &amp;temp) <span class="keyword">const</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b &lt; temp.a + temp.b; <span class="comment">// 以a + b 的值 最大值优先</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node2</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node2 &amp; temp) <span class="keyword">const</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b &gt; temp.a + temp.b; <span class="comment">// 以a + b 的值 最小值优先</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 最大值优先</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>&gt;q1;</span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; , less&lt;<span class="keyword">int</span>&gt; &gt;q2; <span class="comment">// 注意 less&lt;int&gt;&gt;q2; 中间不加空格的话会报错， 因为是右移&gt;&gt; 运算符</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; , cmp1&gt;q3;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 最小值优先</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt; &gt;q4; <span class="comment">// 注意 greater&lt;int&gt;&gt;q4; 中间不加空格的话会报错， 因为是右移&gt;&gt; 运算符</span></span><br><span class="line">    priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, cmp2&gt; q5;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 结构体自定义优先级, 具体优先级顺序看上面</span></span><br><span class="line">    priority_queue&lt;node1&gt;q6;</span><br><span class="line">    priority_queue&lt;node2&gt;q7;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如何理解结构体中overload的小于号呢？ (只能重载小于号)</p><ol><li>可以理解为重载后小于号作用是比较出数组中优先级更小的数据，如果返回的是某个数据值更大的一方则值越大优先级越小，相反则值越小优先级越大。</li><li>优先队列是输出优先级最高的数据的队列。</li><li>可以简单的记为与sort中的cmp函数效果相反。</li></ol><pre><code>恰似你一低头的温柔，较弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  --mingfuyan千万不要图快——如果没有足够的时间用来实践， 那么学得快， 忘得也快。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;默认优先级是从大到小.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://solodance.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="Acm" scheme="https://solodance.top/tags/Acm/"/>
+    
+      <category term="优先队列" scheme="https://solodance.top/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+      <category term="数据结构" scheme="https://solodance.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jetbrains实用技巧汇总</title>
+    <link href="https://solodance.top/2020/01/27/Jetbrains%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%E6%B1%87%E6%80%BB/"/>
+    <id>https://solodance.top/2020/01/27/Jetbrains%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7%E6%B1%87%E6%80%BB/</id>
+    <published>2020-01-27T11:44:53.009Z</published>
+    <updated>2020-01-27T10:55:24.803Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Jetbrains-Tools-关闭-vim模式"><a href="#Jetbrains-Tools-关闭-vim模式" class="headerlink" title="Jetbrains Tools 关闭 vim模式"></a>Jetbrains Tools 关闭 vim模式</h3><pre><code>菜单栏 :tools-&gt;vim emulator</code></pre><a id="more"></a><pre><code>恰似你一低头的温柔，较弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  --mingfuyan千万不要图快——如果没有足够的时间用来实践， 那么学得快， 忘得也快。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Jetbrains-Tools-关闭-vim模式&quot;&gt;&lt;a href=&quot;#Jetbrains-Tools-关闭-vim模式&quot; class=&quot;headerlink&quot; title=&quot;Jetbrains Tools 关闭 vim模式&quot;&gt;&lt;/a&gt;Jetbrains Tools 关闭 vim模式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;菜单栏 :tools-&amp;gt;vim emulator&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="实用技巧" scheme="https://solodance.top/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    
+    
+      <category term="实用技巧" scheme="https://solodance.top/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Jetbrains" scheme="https://solodance.top/tags/Jetbrains/"/>
+    
+  </entry>
   
   <entry>
     <title>关于处理博客旧文章的说明</title>
@@ -179,9 +231,9 @@
     
       <category term="acm" scheme="https://solodance.top/tags/acm/"/>
     
-      <category term="单调栈" scheme="https://solodance.top/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
       <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
+    
+      <category term="单调栈" scheme="https://solodance.top/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
     
   </entry>
   
@@ -209,11 +261,11 @@
     
       <category term="acm" scheme="https://solodance.top/tags/acm/"/>
     
-      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
-    
       <category term="dfs" scheme="https://solodance.top/tags/dfs/"/>
     
       <category term="暴力枚举" scheme="https://solodance.top/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/"/>
+    
+      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
     
   </entry>
   
@@ -382,9 +434,9 @@
       <category term="零碎小知识" scheme="https://solodance.top/categories/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
     
-      <category term="零碎小知识" scheme="https://solodance.top/tags/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
       <category term="Jetbrains" scheme="https://solodance.top/tags/Jetbrains/"/>
+    
+      <category term="零碎小知识" scheme="https://solodance.top/tags/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
@@ -526,66 +578,6 @@
     
     
       <category term="Solo_Dance" scheme="https://solodance.top/tags/Solo-Dance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速算出一个数有多少种因子</title>
-    <link href="https://solodance.top/2020/01/23/%E5%BF%AB%E9%80%9F%E7%AE%97%E5%87%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E6%9C%89%E5%A4%9A%E5%B0%91%E7%A7%8D%E5%9B%A0%E5%AD%90/"/>
-    <id>https://solodance.top/2020/01/23/%E5%BF%AB%E9%80%9F%E7%AE%97%E5%87%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E6%9C%89%E5%A4%9A%E5%B0%91%E7%A7%8D%E5%9B%A0%E5%AD%90/</id>
-    <published>2020-01-23T13:42:35.014Z</published>
-    <updated>2019-07-25T02:31:44.061Z</updated>
-    
-    <content type="html"><![CDATA[<p>快速算出一个数有多少种因子</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n % i == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(n % i == <span class="number">0</span>)&#123;</span><br><span class="line">                n /= i;</span><br><span class="line">                a++;</span><br><span class="line">            &#125;</span><br><span class="line">            s = s * (a + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>) s = s * <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;快速算出一个数有多少种因子&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/s
-      
-    
-    </summary>
-    
-    
-      <category term="acm小知识" scheme="https://solodance.top/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="acm" scheme="https://solodance.top/tags/acm/"/>
-    
-      <category term="数学" scheme="https://solodance.top/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>矩形相交问题</title>
-    <link href="https://solodance.top/2020/01/23/%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%BA%A4%E9%97%AE%E9%A2%98/"/>
-    <id>https://solodance.top/2020/01/23/%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%BA%A4%E9%97%AE%E9%A2%98/</id>
-    <published>2020-01-23T13:42:35.014Z</published>
-    <updated>2019-06-10T10:27:25.761Z</updated>
-    
-    <content type="html"><![CDATA[<p>给出矩形的 对角线上的两个点的坐标 (x11, y11)， (x12, y12)， (x21, y21), (x22, y22)。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x01 = max(min(x11, x12), min(x21, x22));</span><br><span class="line"><span class="keyword">int</span> x02 = min(max(x11, x12), max(x21, x22));</span><br><span class="line"><span class="keyword">int</span> y01 = max(min(y11, y12), min(y21, y22));</span><br><span class="line"><span class="keyword">int</span> y02 = min(max(y11, y12), max(y21, y22));</span><br><span class="line"><span class="keyword">if</span> (x01 &lt; x02 &amp;&amp; y01 &lt; y02)&#123;</span><br><span class="line">    <span class="comment">// 说明这两个矩形相交</span></span><br><span class="line">    <span class="keyword">int</span> s = (x02 - x01) * (y02 - y01); <span class="comment">// 相交的面积</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123; <span class="comment">// 这两个不相交</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="例题-："><a href="#例题-：" class="headerlink" title="例题 ："></a>例题 ：</h2><p><img src="http://imglf5.nosdn0.126.net/img/T0t4Z3Z5a254aFJVTmRISHoxTnJ1QlI0VDhQSjE1cjlmRWV0Mlh0bVVaOTk4V2FySDg4amN3PT0.jpg?imageView&thumbnail=2339y1653&type=jpg&quality=96&stripmeta=0&type=jpg" alt="题目页面1"><br><img src="http://imglf5.nosdn0.126.net/img/T0t4Z3Z5a254aFJVTmRISHoxTnJ1S1F6eUMyZTJKTnZoeWF0NlRhb1ViZ1dHZkF0Y1RZNjRnPT0.jpg?imageView&thumbnail=2339y1653&type=jpg&quality=96&stripmeta=0&type=jpg" alt="题目页面2"></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x1, y1, x2, y2;</span><br><span class="line">    ll sum, s;</span><br><span class="line">&#125;arc[<span class="number">5005</span>];</span><br><span class="line"><span class="keyword">int</span> x01, x02, y01, y02;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            arc[i].sum= <span class="number">0</span>;</span><br><span class="line">            arc[i].s = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; arc[i].x1 &gt;&gt; arc[i].y1 &gt;&gt; arc[i].x2 &gt;&gt; arc[i].y2;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++)&#123;</span><br><span class="line">                x01 = max(min(arc[i].x1, arc[i].x2), min(arc[j].x1, arc[j].x2));</span><br><span class="line">                x02 = min(max(arc[i].x1, arc[i].x2), max(arc[j].x1, arc[j].x2));</span><br><span class="line">                y01 = max(min(arc[i].y1, arc[i].y2), min(arc[j].y1, arc[j].y2));</span><br><span class="line">                y02 = min(max(arc[i].y1, arc[i].y2), max(arc[j].y1, arc[j].y2));</span><br><span class="line">                <span class="keyword">if</span> (x01 &lt; x02 &amp;&amp; y01 &lt; y02)&#123;</span><br><span class="line">                    arc[i].sum++;</span><br><span class="line">                    arc[i].s += (x02 - x01) * (y02 - y01);</span><br><span class="line">                    arc[j].sum++;</span><br><span class="line">                    arc[j].s += (x02 - x01) * (y02 - y01);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; arc[i].sum &lt;&lt; <span class="string">' '</span> &lt;&lt; arc[i].s &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;给出矩形的 对角线上的两个点的坐标 (x11, y11)， (x12, y12)， (x21, y21), (x22, y22)。&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;s
-      
-    
-    </summary>
-    
-    
-      <category term="acm小知识" scheme="https://solodance.top/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="acm" scheme="https://solodance.top/tags/acm/"/>
-    
-      <category term="小技巧" scheme="https://solodance.top/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    
-      <category term="矩形相交" scheme="https://solodance.top/tags/%E7%9F%A9%E5%BD%A2%E7%9B%B8%E4%BA%A4/"/>
     
   </entry>
   
