@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://solodance.top/"/>
-  <updated>2020-01-31T08:05:22.951Z</updated>
+  <updated>2020-01-31T11:04:53.715Z</updated>
   <id>https://solodance.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HYSBZ - 1098 bzoj - 1098 办公楼biu</title>
+    <link href="https://solodance.top/2020/01/31/HYSBZ%20-%201098%20bzoj%20-%201098%20%E5%8A%9E%E5%85%AC%E6%A5%BCbiu/"/>
+    <id>https://solodance.top/2020/01/31/HYSBZ%20-%201098%20bzoj%20-%201098%20%E5%8A%9E%E5%85%AC%E6%A5%BCbiu/</id>
+    <published>2020-01-31T11:05:00.853Z</published>
+    <updated>2020-01-31T11:04:53.715Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p><a href="https://vjudge.net/problem/HYSBZ-1098" target="_blank" rel="noopener">题目链接</a></p><p>求补图连通块的个数以及各个连通块的大小。</p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>参照了<a href="https://blog.csdn.net/ww140142/article/details/49025519" target="_blank" rel="noopener">ww140142</a>的做法。</p><p>每次枚举一个未在连通块的点，然后从它开始宽搜出它所在的连通块；</p><p>具体是枚举它的所有原图的边，标记起来，枚举边之后再枚举所有的点，将未标记的点加入该连通块，并加入队列继续宽搜；</p><p>为了节约无用的枚举，我们还需要对所有点构建链表，将已经在某个块内的点删除；</p><p>这个算法的复杂度是O(n+m)的；</p><p>原因是每一个点仅进行了一次宽搜的拓展；</p><p>并且在每次拓展中，枚举边表总复杂度是O(m)；</p><p>而之后的枚举剩下的点，我们将点分为两部分：已标记的点的复杂度计在O(m)之内，而未标记的点将会被加入队列，这个过程对每个点也仅有一次；</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, cnt, u, v, lst[N], nxt[N], vis[N], ans[N];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;ve[N]; <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123; nxt[lst[x]] = nxt[x]; lst[nxt[x]] = lst[x]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;v), ve[u].push_back(v), ve[v].push_back(u);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) lst[i + <span class="number">1</span>] = i, nxt[i] = i + <span class="number">1</span>;</span><br><span class="line">    nxt[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[i]) <span class="keyword">continue</span>;</span><br><span class="line">        ans[++cnt] = vis[i] = <span class="number">1</span>; q.push(i);del(i);</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> u = q.front();q.pop();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; ve[u].size(); ++j) <span class="keyword">if</span> (!vis[ve[u][j]]) vis[ve[u][j]] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = nxt[<span class="number">0</span>]; j; j = nxt[j])</span><br><span class="line">                <span class="keyword">if</span> (!vis[j]) &#123;vis[j] = <span class="number">1</span>;++ans[cnt];del(j);q.push(j);&#125;</span><br><span class="line">                <span class="keyword">else</span> vis[j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(ans + <span class="number">1</span>, ans + <span class="number">1</span> + cnt);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, cnt);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; cnt; ++i) <span class="built_in">printf</span>(<span class="string">"%d "</span>, ans[i]); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans[cnt]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;solve();<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br></pre></td></tr></table></figure><h2 id="后继"><a href="#后继" class="headerlink" title="后继"></a>后继</h2><p>相关题目</p><p><a href="https://vjudge.net/problem/CodeForces-920E" target="_blank" rel="noopener">CodeForces - 920E</a></p><p><a href="https://vjudge.net/problem/CodeForces-1242B" target="_blank" rel="noopener">CodeForces-1242B</a></p><pre><code>恰似你一低头的温柔，较弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  --mingfuyan千万不要图快——如果没有足够的时间用来实践， 那么学得快， 忘得也快。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目大意&quot;&gt;&lt;a href=&quot;#题目大意&quot; class=&quot;headerlink&quot; title=&quot;题目大意&quot;&gt;&lt;/a&gt;题目大意&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://vjudge.net/problem/HYSBZ-1098&quot; target=&quot;_blank
+      
+    
+    </summary>
+    
+    
+      <category term="模板题" scheme="https://solodance.top/categories/%E6%A8%A1%E6%9D%BF%E9%A2%98/"/>
+    
+    
+      <category term="Acm" scheme="https://solodance.top/tags/Acm/"/>
+    
+      <category term="补图" scheme="https://solodance.top/tags/%E8%A1%A5%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>SDNU_ACM_ICPC_2020_Winter_Practice_3rd【解题报告】</title>
@@ -64,11 +92,11 @@
     
       <category term="最短路" scheme="https://solodance.top/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
+      <category term="Acm" scheme="https://solodance.top/tags/Acm/"/>
+    
       <category term="贪心" scheme="https://solodance.top/tags/%E8%B4%AA%E5%BF%83/"/>
     
       <category term="拓扑排序" scheme="https://solodance.top/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
-    
-      <category term="Acm" scheme="https://solodance.top/tags/Acm/"/>
     
       <category term="二维前缀和" scheme="https://solodance.top/tags/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/"/>
     
@@ -334,9 +362,9 @@
     
       <category term="acm" scheme="https://solodance.top/tags/acm/"/>
     
-      <category term="单调栈" scheme="https://solodance.top/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
       <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
+    
+      <category term="单调栈" scheme="https://solodance.top/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
     
   </entry>
   
@@ -364,11 +392,11 @@
     
       <category term="acm" scheme="https://solodance.top/tags/acm/"/>
     
-      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
-    
       <category term="dfs" scheme="https://solodance.top/tags/dfs/"/>
     
       <category term="暴力枚举" scheme="https://solodance.top/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/"/>
+    
+      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
     
   </entry>
   
@@ -568,34 +596,6 @@
       <category term="数据结构" scheme="https://solodance.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="笔记" scheme="https://solodance.top/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>求n边形的面积</title>
-    <link href="https://solodance.top/2020/01/23/%E6%B1%82n%E8%BE%B9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/"/>
-    <id>https://solodance.top/2020/01/23/%E6%B1%82n%E8%BE%B9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/</id>
-    <published>2020-01-23T13:42:35.045Z</published>
-    <updated>2019-12-02T05:11:12.100Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p><a href="http://www.acmicpc.sdnu.edu.cn/problem/show/1334" target="_blank" rel="noopener">题目链接</a></p><p>给出正n边形n个点的坐标， 求n变形面积的2倍， <code>3&lt;=N&lt;=100000</code>，<code>0&lt;=xi,yi&lt;=10^9</code>，  <code>mod = 1000000007</code></p><h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-8</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ms(a, b) memset((a), (b), sizeof(a))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> ll ll_max = <span class="number">4557430888798830399</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">0</span>; <span class="keyword">bool</span> f = <span class="number">0</span>; <span class="keyword">char</span> ch = getchar();</span><br><span class="line">    <span class="keyword">while</span> (ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>) &#123; <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">1</span>; ch = getchar(); &#125;</span><br><span class="line">    <span class="keyword">while</span> (ch &lt;= <span class="string">'9'</span> &amp;&amp; ch &gt;= <span class="string">'0'</span>) &#123; res = (res &lt;&lt; <span class="number">3</span>) + (res &lt;&lt; <span class="number">1</span>) + ch - <span class="string">'0'</span>; ch = getchar(); &#125;</span><br><span class="line">    <span class="keyword">return</span> f ? (~ res  + <span class="number">1</span>) : res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    ll x, y;</span><br><span class="line">&#125;a[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll ans;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n))&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) a[i].x = read(), a[i].y = read();</span><br><span class="line">        a[n] = a[<span class="number">0</span>];</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            ans = (ans + (a[i - <span class="number">1</span>].x * a[i].y - a[i].x * a[i - <span class="number">1</span>].y) % mod + mod) % mod;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;题目大意&quot;&gt;&lt;a href=&quot;#题目大意&quot; class=&quot;headerlink&quot; title=&quot;题目大意&quot;&gt;&lt;/a&gt;题目大意&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.acmicpc.sdnu.edu.cn/problem/show/1334&quot; tar
-      
-    
-    </summary>
-    
-    
-      <category term="acm小知识" scheme="https://solodance.top/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="acm" scheme="https://solodance.top/tags/acm/"/>
-    
-      <category term="小知识" scheme="https://solodance.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
