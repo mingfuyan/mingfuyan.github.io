@@ -183,13 +183,13 @@
     
       <category term="Acm" scheme="https://solodance.top/tags/Acm/"/>
     
-      <category term="dp" scheme="https://solodance.top/tags/dp/"/>
-    
       <category term="矩阵快速幂" scheme="https://solodance.top/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
     
-      <category term="stl" scheme="https://solodance.top/tags/stl/"/>
+      <category term="dp" scheme="https://solodance.top/tags/dp/"/>
     
       <category term="博弈" scheme="https://solodance.top/tags/%E5%8D%9A%E5%BC%88/"/>
+    
+      <category term="stl" scheme="https://solodance.top/tags/stl/"/>
     
       <category term="矩阵" scheme="https://solodance.top/tags/%E7%9F%A9%E9%98%B5/"/>
     
@@ -331,6 +331,34 @@
   </entry>
   
   <entry>
+    <title>2019牛客多校训练赛第五场A题 （思维题）</title>
+    <link href="https://solodance.top/2020/01/23/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B%E7%AC%AC%E4%BA%94%E5%9C%BAA%E9%A2%98%20%EF%BC%88%E6%80%9D%E7%BB%B4%E9%A2%98%EF%BC%89/"/>
+    <id>https://solodance.top/2020/01/23/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B%E7%AC%AC%E4%BA%94%E5%9C%BAA%E9%A2%98%20%EF%BC%88%E6%80%9D%E7%BB%B4%E9%A2%98%EF%BC%89/</id>
+    <published>2020-01-23T13:42:35.123Z</published>
+    <updated>2019-08-02T06:02:36.904Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>（看不清图片可以右击图片-&gt; 复制图片地址 -&gt;浏览器新开一个标签页，粘贴此地址就可看大图<br>（也可以右击图片-&gt; 在新标签页打开图片</p><p><img src="http://imglf4.nosdn0.126.net/img/T0t4Z3Z5a254aFRMNGtzcmtHbjZtMmtJT29KTHRUYjBjMWhoaUJ3a3AvSVpDNkh0Ri9oR3V3PT0.png?imageView&thumbnail=1680x0&quality=96&stripmeta=0" alt="题干"></p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p><strong>题意</strong>：给你一个整型x（x &lt;= 100）， 让你输出一个整型y， y要满足3个条件:</p><ol><li>y 能被 x 整除</li><li>y和各个数位的数字之和能被 x 整除(就是个位， 十位， 百位，… 之和)</li><li>y的位数不超过 10^4</li></ol><p>思维题， 真是太妙了。<br>最简单的构造方法就是， 把n看做字符串， 输出n个头尾相连的字符串n即可。</p><ul><li>第一个条件： 这肯定是满足的呀。</li></ul><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">举个例子</span><br><span class="line">x = <span class="number">99</span></span><br><span class="line">y = <span class="number">99</span>个<span class="number">99</span></span><br><span class="line">用竖式除一下， 就是（<span class="number">1010101.</span>..)</span><br></pre></td></tr></table></figure><ul><li>第二个条件：这也肯定了呀。  </li></ul><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">举个例子</span><br><span class="line">x = <span class="number">99</span></span><br><span class="line">y = <span class="number">99</span>个<span class="number">99</span></span><br><span class="line">求和就是<span class="number">99</span>个(<span class="number">18</span>)</span><br></pre></td></tr></table></figure><ul><li>第三个条件， x最大是100， 100个100正好10 ^ 4</li></ul><h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-8</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1e9</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;&lt;p&gt;（看不清图片可以右击图片-&amp;gt; 复制图片地址 -&amp;gt;浏览器新开一个标签页，粘贴此地址就可看大图&lt;br&gt;（也可以右击图
+      
+    
+    </summary>
+    
+    
+      <category term="思维题" scheme="https://solodance.top/categories/%E6%80%9D%E7%BB%B4%E9%A2%98/"/>
+    
+    
+      <category term="acm" scheme="https://solodance.top/tags/acm/"/>
+    
+      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2019牛客多校训练赛第五场B题generator 1（十进制矩阵快速幂）</title>
     <link href="https://solodance.top/2020/01/23/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B%E7%AC%AC%E4%BA%94%E5%9C%BAB%E9%A2%98generator%201%EF%BC%88%E5%8D%81%E8%BF%9B%E5%88%B6%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89/"/>
     <id>https://solodance.top/2020/01/23/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B%E7%AC%AC%E4%BA%94%E5%9C%BAB%E9%A2%98generator%201%EF%BC%88%E5%8D%81%E8%BF%9B%E5%88%B6%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82%EF%BC%89/</id>
@@ -357,34 +385,6 @@
       <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
     
       <category term="矩阵快速幂" scheme="https://solodance.top/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019牛客多校训练赛第五场A题 （思维题）</title>
-    <link href="https://solodance.top/2020/01/23/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B%E7%AC%AC%E4%BA%94%E5%9C%BAA%E9%A2%98%20%EF%BC%88%E6%80%9D%E7%BB%B4%E9%A2%98%EF%BC%89/"/>
-    <id>https://solodance.top/2020/01/23/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B%E7%AC%AC%E4%BA%94%E5%9C%BAA%E9%A2%98%20%EF%BC%88%E6%80%9D%E7%BB%B4%E9%A2%98%EF%BC%89/</id>
-    <published>2020-01-23T13:42:35.123Z</published>
-    <updated>2019-08-02T06:02:36.904Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>（看不清图片可以右击图片-&gt; 复制图片地址 -&gt;浏览器新开一个标签页，粘贴此地址就可看大图<br>（也可以右击图片-&gt; 在新标签页打开图片</p><p><img src="http://imglf4.nosdn0.126.net/img/T0t4Z3Z5a254aFRMNGtzcmtHbjZtMmtJT29KTHRUYjBjMWhoaUJ3a3AvSVpDNkh0Ri9oR3V3PT0.png?imageView&thumbnail=1680x0&quality=96&stripmeta=0" alt="题干"></p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p><strong>题意</strong>：给你一个整型x（x &lt;= 100）， 让你输出一个整型y， y要满足3个条件:</p><ol><li>y 能被 x 整除</li><li>y和各个数位的数字之和能被 x 整除(就是个位， 十位， 百位，… 之和)</li><li>y的位数不超过 10^4</li></ol><p>思维题， 真是太妙了。<br>最简单的构造方法就是， 把n看做字符串， 输出n个头尾相连的字符串n即可。</p><ul><li>第一个条件： 这肯定是满足的呀。</li></ul><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">举个例子</span><br><span class="line">x = <span class="number">99</span></span><br><span class="line">y = <span class="number">99</span>个<span class="number">99</span></span><br><span class="line">用竖式除一下， 就是（<span class="number">1010101.</span>..)</span><br></pre></td></tr></table></figure><ul><li>第二个条件：这也肯定了呀。  </li></ul><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">举个例子</span><br><span class="line">x = <span class="number">99</span></span><br><span class="line">y = <span class="number">99</span>个<span class="number">99</span></span><br><span class="line">求和就是<span class="number">99</span>个(<span class="number">18</span>)</span><br></pre></td></tr></table></figure><ul><li>第三个条件， x最大是100， 100个100正好10 ^ 4</li></ul><h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> eps 1e-8</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; P;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1e9</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t, n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，娇弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;&lt;p&gt;（看不清图片可以右击图片-&amp;gt; 复制图片地址 -&amp;gt;浏览器新开一个标签页，粘贴此地址就可看大图&lt;br&gt;（也可以右击图
-      
-    
-    </summary>
-    
-    
-      <category term="思维题" scheme="https://solodance.top/categories/%E6%80%9D%E7%BB%B4%E9%A2%98/"/>
-    
-    
-      <category term="acm" scheme="https://solodance.top/tags/acm/"/>
-    
-      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
     
   </entry>
   
@@ -442,40 +442,11 @@
     
       <category term="acm" scheme="https://solodance.top/tags/acm/"/>
     
-      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
-    
       <category term="dfs" scheme="https://solodance.top/tags/dfs/"/>
     
       <category term="暴力枚举" scheme="https://solodance.top/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/"/>
     
-  </entry>
-  
-  <entry>
-    <title>做题时文件的读入（c++）</title>
-    <link href="https://solodance.top/2020/01/23/%E5%81%9A%E9%A2%98%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%85%A5%EF%BC%88c++%EF%BC%89/"/>
-    <id>https://solodance.top/2020/01/23/%E5%81%9A%E9%A2%98%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%85%A5%EF%BC%88c++%EF%BC%89/</id>
-    <published>2020-01-23T13:42:35.092Z</published>
-    <updated>2019-06-16T09:37:12.867Z</updated>
-    
-    <content type="html"><![CDATA[<p>直接看代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    FILE *fp = fopen(<span class="string">"input.txt"</span>, <span class="string">"r"</span>); <span class="comment">// 根据题目中要求的写 有的是text.txt</span></span><br><span class="line">    FILE *fpw = fopen(<span class="string">"output.txt"</span>, <span class="string">"w"</span>);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">-1</span>; <span class="comment">// 第一行特殊就专门输入</span></span><br><span class="line">    <span class="keyword">while</span>(!feof(fp))&#123;  <span class="comment">// 把整个文件一个个读进去</span></span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">-1</span>)  <span class="comment">// 第一行特殊就专门输入</span></span><br><span class="line">            <span class="built_in">fscanf</span>(fp, <span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;K);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">fscanf</span>(fp, <span class="string">"%d%d"</span>, &amp;a[i], &amp;b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 正常主体代码</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 最后输出</span></span><br><span class="line">    <span class="built_in">fprintf</span>(fpw, <span class="string">"%d %d\n"</span>, indx, indy);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;直接看代码：&lt;/p&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
-      
-    
-    </summary>
-    
-    
-      <category term="acm小知识" scheme="https://solodance.top/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="acm" scheme="https://solodance.top/tags/acm/"/>
-    
-      <category term="小知识" scheme="https://solodance.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
     
   </entry>
   
@@ -506,6 +477,35 @@
       <category term="零碎小知识" scheme="https://solodance.top/tags/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
       <category term="codeblocks" scheme="https://solodance.top/tags/codeblocks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>做题时文件的读入（c++）</title>
+    <link href="https://solodance.top/2020/01/23/%E5%81%9A%E9%A2%98%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%85%A5%EF%BC%88c++%EF%BC%89/"/>
+    <id>https://solodance.top/2020/01/23/%E5%81%9A%E9%A2%98%E6%97%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%85%A5%EF%BC%88c++%EF%BC%89/</id>
+    <published>2020-01-23T13:42:35.092Z</published>
+    <updated>2019-06-16T09:37:12.867Z</updated>
+    
+    <content type="html"><![CDATA[<p>直接看代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    FILE *fp = fopen(<span class="string">"input.txt"</span>, <span class="string">"r"</span>); <span class="comment">// 根据题目中要求的写 有的是text.txt</span></span><br><span class="line">    FILE *fpw = fopen(<span class="string">"output.txt"</span>, <span class="string">"w"</span>);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">-1</span>; <span class="comment">// 第一行特殊就专门输入</span></span><br><span class="line">    <span class="keyword">while</span>(!feof(fp))&#123;  <span class="comment">// 把整个文件一个个读进去</span></span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">-1</span>)  <span class="comment">// 第一行特殊就专门输入</span></span><br><span class="line">            <span class="built_in">fscanf</span>(fp, <span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;K);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">fscanf</span>(fp, <span class="string">"%d%d"</span>, &amp;a[i], &amp;b[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 正常主体代码</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 最后输出</span></span><br><span class="line">    <span class="built_in">fprintf</span>(fpw, <span class="string">"%d %d\n"</span>, indx, indy);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;直接看代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
+      
+    
+    </summary>
+    
+    
+      <category term="acm小知识" scheme="https://solodance.top/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="acm" scheme="https://solodance.top/tags/acm/"/>
+    
+      <category term="小知识" scheme="https://solodance.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
