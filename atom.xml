@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://solodance.top/"/>
-  <updated>2020-02-16T04:09:16.412Z</updated>
+  <updated>2020-03-02T10:33:43.312Z</updated>
   <id>https://solodance.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CodeForces - 1321C Remove Adjacent（贪心）</title>
+    <link href="https://solodance.top/2020/03/02/CodeForces%20-%201321C%20Remove%20Adjacent%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89/"/>
+    <id>https://solodance.top/2020/03/02/CodeForces%20-%201321C%20Remove%20Adjacent%EF%BC%88%E8%B4%AA%E5%BF%83%EF%BC%89/</id>
+    <published>2020-03-02T10:34:09.684Z</published>
+    <updated>2020-03-02T10:33:43.312Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p><a href="https://vjudge.net/problem/CodeForces-1321C" target="_blank" rel="noopener">题目链接</a></p><p>给你一个字符串， 如果相邻的两个字母s[i], s[j] 满足 <code>abs(s[i] - s[j]) == 1</code>， 那么就能删除较大的那个字符， 问最多能删多少个。</p><a id="more"></a><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>贪心， 先把字母z删掉， 然后在删y， 以此类推。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> ans, n;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">f</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> l = s.length();</span><br><span class="line">    <span class="built_in">string</span> tmp = <span class="string">""</span>;</span><br><span class="line">    <span class="comment">// 找到字符c 的连续的区间</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == c)&#123;</span><br><span class="line">            <span class="keyword">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; l &amp;&amp; s[j] == c)++j;</span><br><span class="line">            <span class="comment">// 判断可不可删</span></span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; s[i - <span class="number">1</span>] == c - <span class="number">1</span> || j &lt; l &amp;&amp; s[j] == c - <span class="number">1</span>)&#123;</span><br><span class="line">                ans += j - i;</span><br><span class="line">                i = j - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 不能删的被保留</span></span><br><span class="line">        tmp += s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 去除被删的字符, 返回</span></span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c = <span class="string">'z'</span>; c &gt; <span class="string">'a'</span>; --c)</span><br><span class="line">        s = f(s, c);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><pre><code>恰似你一低头的温柔，较弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  --mingfuyan千万不要图快——如果没有足够的时间用来实践， 那么学得快， 忘得也快。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目大意&quot;&gt;&lt;a href=&quot;#题目大意&quot; class=&quot;headerlink&quot; title=&quot;题目大意&quot;&gt;&lt;/a&gt;题目大意&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://vjudge.net/problem/CodeForces-1321C&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给你一个字符串， 如果相邻的两个字母s[i], s[j] 满足 &lt;code&gt;abs(s[i] - s[j]) == 1&lt;/code&gt;， 那么就能删除较大的那个字符， 问最多能删多少个。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="贪心" scheme="https://solodance.top/categories/%E8%B4%AA%E5%BF%83/"/>
+    
+    
+      <category term="Acm" scheme="https://solodance.top/tags/Acm/"/>
+    
+      <category term="贪心" scheme="https://solodance.top/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
   
   <entry>
     <title>2020牛客寒假算法基础集训营6_A 配对（贪心）</title>
@@ -317,9 +343,9 @@
     
       <category term="Acm" scheme="https://solodance.top/tags/Acm/"/>
     
-      <category term="stl" scheme="https://solodance.top/tags/stl/"/>
-    
       <category term="dp" scheme="https://solodance.top/tags/dp/"/>
+    
+      <category term="stl" scheme="https://solodance.top/tags/stl/"/>
     
       <category term="博弈" scheme="https://solodance.top/tags/%E5%8D%9A%E5%BC%88/"/>
     
@@ -544,41 +570,9 @@
     
       <category term="acm" scheme="https://solodance.top/tags/acm/"/>
     
+      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
+    
       <category term="单调栈" scheme="https://solodance.top/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
-      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019牛客多校训练赛第二场F题Partition problem（dfs + 暴力枚举）</title>
-    <link href="https://solodance.top/2020/01/23/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B%E7%AC%AC%E4%BA%8C%E5%9C%BAF%E9%A2%98Partition%20problem%EF%BC%88dfs%20+%20%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE%EF%BC%89/"/>
-    <id>https://solodance.top/2020/01/23/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B%E7%AC%AC%E4%BA%8C%E5%9C%BAF%E9%A2%98Partition%20problem%EF%BC%88dfs%20+%20%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE%EF%BC%89/</id>
-    <published>2020-01-23T13:42:35.092Z</published>
-    <updated>2019-07-23T02:08:20.970Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>（看不清图片可以右击图片-&gt; 复制图片地址 -&gt;浏览器新开一个标签页，粘贴此地址就可看大图<br>（也可以右击图片-&gt; 在新标签页打开图片</p><p><img src="http://imglf5.nosdn0.126.net/img/T0t4Z3Z5a254aFRxNWZ4RmlrSU9neDhORjU5cDRCY2xXK0sxSzEwVG53MHc3VEdXREpESEt3PT0.png?imageView&thumbnail=1680x0&quality=96&stripmeta=0" alt="F"></p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>题意： 给你2 * n个人， 以及他们之间的竞争值（用矩阵表示），让你分成两组， 每组n个人， 问你如何分才能让竞争值最大（同队之间不存在竞争）， 输出最大竞争值 。</p><p>分析： 用dfs爆搜， 从1开始， 当groupA 组员数小于n时， 就可以放进A， 同理groupB也是。最后当搜索到第 <code>2 * n + 1</code>时return。</p><p>ac代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"algorithm"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"queue"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"set"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cstring"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"string"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"map"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"vector"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"math.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"utility"</span>   <span class="comment">// pair头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> esp 1e-6</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line">ll val[<span class="number">102</span>][<span class="number">102</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll ans;</span><br><span class="line"><span class="keyword">int</span> group1[<span class="number">102</span>], group2[<span class="number">102</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> cnt1, <span class="keyword">int</span> cnt2, ll sum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur &gt;= <span class="number">2</span> * n + <span class="number">1</span>)&#123;</span><br><span class="line">        ans = max(ans, sum);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (cnt1 &lt; n)&#123;</span><br><span class="line">        ll tem = sum;</span><br><span class="line">        group1[cnt1 + <span class="number">1</span>] = cur;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt2; i++)</span><br><span class="line">            tem += val[group2[i]][cur];</span><br><span class="line">        dfs(cur + <span class="number">1</span>, cnt1 + <span class="number">1</span>, cnt2, tem);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (cnt2 &lt; n)&#123;</span><br><span class="line">        ll tem = sum;</span><br><span class="line">        group2[cnt2 + <span class="number">1</span>] = cur;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt1; i++)&#123;</span><br><span class="line">            tem += val[group1[i]][cur];</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(cur + <span class="number">1</span>, cnt1, cnt2 + <span class="number">1</span>, tem);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">2</span> * n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">2</span> * n; j++)&#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; val[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恰似你一低头的温柔，较弱水莲花不胜寒风的娇羞， 我的心为你悸动不休。  <span class="comment">--mingfuyan</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;&lt;p&gt;（看不清图片可以右击图片-&amp;gt; 复制图片地址 -&amp;gt;浏览器新开一个标签页，粘贴此地址就可看大图&lt;br&gt;（也可以右击图
-      
-    
-    </summary>
-    
-    
-      <category term="dfs" scheme="https://solodance.top/categories/dfs/"/>
-    
-    
-      <category term="acm" scheme="https://solodance.top/tags/acm/"/>
-    
-      <category term="2019牛客多校训练赛" scheme="https://solodance.top/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/"/>
-    
-      <category term="dfs" scheme="https://solodance.top/tags/dfs/"/>
-    
-      <category term="暴力枚举" scheme="https://solodance.top/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/"/>
     
   </entry>
   
