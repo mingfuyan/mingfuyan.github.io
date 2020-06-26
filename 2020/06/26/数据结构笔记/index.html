@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="欢迎访问 Solo_Dance的博客"><meta name="keywords" content="solodance, mingfuyan, mingfuyan的博客, Solo_Dance, solodance, Solo_Dance的博客, solodanceの博客, Solo_Danceの博客"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style-dark.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight-dark.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><link rel="stylesheet" type="text/css" href="https://unpkg.com/gitalk/dist/gitalk.css?v=2.0.4"><title>数据结构整理笔记（提纲） （数据结构 C语言版 第二版 严蔚敏） | Solo_Dance的博客</title><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">数据结构整理笔记（提纲） （数据结构 C语言版 第二版 严蔚敏）</h1><a id="logo" href="/.">Solo_Dance的博客</a><p class="description">欢迎访问 Solo_Dance的博客</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">数据结构整理笔记（提纲） （数据结构 C语言版 第二版 严蔚敏）</h1><div class="post-meta"><a href="/2020/06/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/#comments" class="comment-count"></a><p><span class="date">Jun 26, 2020</span><span><a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category">数据结构</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h2 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>数据结构（这门学科）：</strong> 是一门研究数据的组织， 存储， 和运算的一般方法。  </p>
+<p><strong>数据：</strong> 是客观事物的符号表示， 是所有能输入到计算机中并被计算机程序处理的符号的总称。  </p>
+<p><strong>数据元素：</strong> 是数据的<strong>基本单位</strong>， 在计算机中通常作为一个整体进行考虑和处理。数据元素用于完整地描述一个对象。</p>
+<p><strong>数据项：</strong> 组成数据元素的、 有独立含义的、 不可分割的最小单位。<em>例如</em> ：学生的姓名学号等。</p>
+<p><strong>数据对象：</strong> 是性质相同的数据元素的集合， 是数据的一个子集。<strong>只要集合内的性质均相同， 都可称之为一个数据对象</strong>。  </p>
+<p><strong>数据结构：</strong> 是相互之间存在一种或多种特定关系的数据元素的集合。  </p>
+<p>数据结构  </p>
+<ul>
+<li>逻辑结构  <ul>
+<li>集合结构（离散结构， 因为太简单， 所以不考虑）</li>
+<li>线性结构</li>
+<li>非线性结构<ul>
+<li>树结构</li>
+<li>图结构或网状结构</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储结构<ul>
+<li>顺序存储结构</li>
+<li>链式存储结构</li>
+</ul>
+</li>
+</ul>
+<p><strong>逻辑结构</strong><br>二元组 （D， R）  </p>
+<ul>
+<li>D是数据关系的集合</li>
+<li>R是D关系上的集合<br>（） 代表无序 &lt;&gt; 代表有序</li>
+</ul>
+<h3 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h3><p><strong>抽象数据类型</strong> ： 一般指由用户定义的、 表示应用问题的数学模型， 以及定义在这个模型上的一组操作的总称。<br>具体包括三部分： 数据对象， 数据对象上关系的集合 以及 对数据对象的基本操作的集合。<br><strong>定义格式</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ADT 抽象数据类型名&#123;</span><br><span class="line">    数据对象:&lt;数据对象的定义&gt;</span><br><span class="line">    数据关系:&lt;数据关系的定义&gt;</span><br><span class="line">    基本操作:&lt;基本操作的定义&gt;</span><br><span class="line">&#125; ADT 抽象数据类型名</span><br></pre></td></tr></table></figure>
+
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p><strong>算法</strong> ：是为了解决某类问题而规定的一个有限长的操作序列。<br><strong>重要特性</strong></p>
+<ul>
+<li>有穷性</li>
+<li>确定性</li>
+<li>可行性</li>
+<li>输入</li>
+<li>输出</li>
+</ul>
+<p><strong>评价算法优劣的基本标准</strong></p>
+<ul>
+<li>正确性 能在有限的运行时间内得到正确的结果。</li>
+<li>可读性 </li>
+<li>健壮性</li>
+<li>高效性 时间空间</li>
+</ul>
+<p><strong>语句频度：</strong> 一条语句重复执行的次数</p>
+<p><strong>算法的时间复杂度：</strong> （一般指的是最坏时间复杂度）</p>
+<ul>
+<li>常量阶实例  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100000000</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"我爱你啊亲！"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+此算法时间复杂度 T(n) = O(1)。</li>
+</ul>
+<p><strong>算法的空间复杂度</strong></p>
+<ul>
+<li>常量阶<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n / <span class="number">2</span>; i++)&#123;</span><br><span class="line">    t = a[i];</span><br><span class="line">    a[i] = a[n - i + <span class="number">1</span>];</span><br><span class="line">    a[n - i - <span class="number">1</span>] = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>线性阶<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    b[i] = a[n - i + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    a[i] = b[i];</span><br></pre></td></tr></table></figure>
+此算法需要借助大小为n的辅助数组， 所以其空间复杂度为O(n)。</li>
+</ul>
+<h2 id="第二章-线性表"><a href="#第二章-线性表" class="headerlink" title="第二章 线性表"></a>第二章 线性表</h2><p><strong>线性表：</strong> 由n（n &gt;= 0）个数据特性相同的元素构成的有限序列。<br><strong>空表：</strong> n = 0的线性表。</p>
+<p>非空的线性表或线性结构的特点：<br>（1） 存在唯一的一个被称作“第一个”的数据元素；<br>（2） 存在唯一的一个被称作“最后一个”的数据元素；<br>（3） 除第一个元素外， 结构中的每个数据元素均只有一个前驱；<br>（4） 除最后一个元素外， 结构中的每个数据元素均只有一个后继。</p>
+<h3 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h3><p>线性表的顺序存储结构是一种<strong>随机存取</strong>的存储结构。</p>
+<p><strong>平均查找长度：</strong> 在查找时， 为确定元素在顺序表中的位置， 需和给定的值进行比较的数据元素个数的期望值称为查找算法在查找成功时的平均查找长度（Average Search Length ASL）</p>
+<ul>
+<li>假设pi 是查找第i个元素的概率， Ci 为找到其中关键字与给定值相等的第i个记录时， 和给定值已进行过比较的关键字个数， 则在长度为n的线性表中， 查找成功时的平均查找长度为<code>ASL = piCi （i : 1 - n 之和）</code></li>
+</ul>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>链表这东西没什么好说的， 会一些基本的操作就行。</p>
+<h3 id="待解决的问题"><a href="#待解决的问题" class="headerlink" title="待解决的问题"></a>待解决的问题</h3><p>把链表的基本操作写一下。</p>
+<h2 id="第三章-栈和队列"><a href="#第三章-栈和队列" class="headerlink" title="第三章 栈和队列"></a>第三章 栈和队列</h2><h3 id="栈-（后进先出的数据结构（Last-In-First-Out-LIFO））"><a href="#栈-（后进先出的数据结构（Last-In-First-Out-LIFO））" class="headerlink" title="栈 （后进先出的数据结构（Last In First Out, LIFO））"></a>栈 （后进先出的数据结构（Last In First Out, LIFO））</h3><p>栈顶， 栈底。</p>
+<ul>
+<li>顺序栈  </li>
+<li>链栈</li>
+<li><em>递归*</em>： </li>
+</ul>
+<ol>
+<li>定义是递归的 比如： 阶乘，二阶Fibonacci数列<ul>
+<li>分治法：</li>
+<li>能将一个问题变成一个新问题， 而新问题与原问题的解法相同或类同， 不同的仅是处理的对象， 并且这些处理对象更小且变化有规律。</li>
+<li>可以通过上述转化而使问题简化。</li>
+<li>必须有一个明确的递归出口， 或称递归的边界。</li>
+</ul>
+</li>
+<li>数据结构是递归的 比如： 链表</li>
+<li>问题的解法是递归的 比如： Hanoi塔问题， 八皇后问题， 迷宫问题</li>
+</ol>
+<p><strong>递归的算法效率分析：</strong>通过迭代法求解递归方程来计算时间复杂度。</p>
+<h3 id="队列-（先进先出的数据结构（First-In-First-Out-FIFO））"><a href="#队列-（先进先出的数据结构（First-In-First-Out-FIFO））" class="headerlink" title="队列 （先进先出的数据结构（First In First Out, FIFO））"></a>队列 （先进先出的数据结构（First In First Out, FIFO））</h3><p>队头， 队尾</p>
+<ul>
+<li><p>顺序队列（循环队列）<br>少用一个元素空间；<br>队空的条件： Q.front == Q.rear<br>队满的条件： (Q.rear + 1) % MAXQSIZE == Q.front</p>
+</li>
+<li><p>链队</p>
+</li>
+</ul>
+<h3 id="遗留的问题"><a href="#遗留的问题" class="headerlink" title="遗留的问题"></a>遗留的问题</h3><p>链栈， 顺序队， 链队的代码</p>
+<h2 id="第四章-串、数组和广义表"><a href="#第四章-串、数组和广义表" class="headerlink" title="第四章 串、数组和广义表"></a>第四章 串、数组和广义表</h2><h3 id="串（或字符串）"><a href="#串（或字符串）" class="headerlink" title="串（或字符串）"></a>串（或字符串）</h3><p><strong>串的模式匹配算法</strong></p>
+<ol>
+<li>BF算法（Brute-Force）<br>就是暴力、这个 太简单就不写代码了。</li>
+<li>KMP算法<br>最主要的是如何构造next数组和nextval数组<ul>
+<li>next数组（模式串）：</li>
+</ul>
+<ol>
+<li>0    j = 1</li>
+<li>max k(1 &lt; k &lt; j)  ‘p1 p2 … p(k - 1)’  == ‘p(j - k + 1) … p(j - 2) p(j - 1)’<br>通俗的来说 就是看 j 前面的 k - 1（1 &lt; k &lt; j）字符 和 从 1 到k - 1的字符是不是一样</li>
+<li>1 一个字符都不匹配</li>
+</ol>
+<ul>
+<li>nextval数组</li>
+</ul>
+<ol>
+<li>求出next数组</li>
+<li>根据next数组判断 s[j] ?= s[next[j]]<br>如果相等 nextval[j] = next[next[j]]<br>如果不想等(不相等) nextval[j] = next[j]</li>
+</ol>
+</li>
+</ol>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组很简单就不说了</p>
+<h3 id="广义表"><a href="#广义表" class="headerlink" title="广义表"></a>广义表</h3><p>就把一些基本的定义弄熟就行了<br>广义表一般记作<code>LS = (a1, a2, a2, ..., an)</code> 其中LS是这个广义表的名称， n为其长度。<br>ai 可以是单个元素， 也可以是广义表 分别称为 广义表LS的原子和字表。<br>习惯上， 用大写字母表示广义表的名称， 用小写字母表示原子。<br>显然， 广义表的定义是一个递归的定义， 因为在描述广义表时又用到了广义表的概念。<br><strong>例子</strong></p>
+<ol>
+<li>A = () —— A是一个空表， 其长度为0。</li>
+<li>B = (e) —— B只有一个原子e，其长度为1。</li>
+<li>C = (a, (b, c, d)) —— C的长度为2， 两个元素分别为原子a和字表(b, c, d)。</li>
+<li>D = (A, B, C) —— D的长度为3， 三个字表都是广义表。</li>
+<li>E = (a, E) —— 这是一个递归表， 长度为2。E 相当于一个无限的广义表 E = (a, (a, (a, …)))。</li>
+</ol>
+<p><strong>概念</strong></p>
+<ul>
+<li>表头（是一个元素）： 为非空广义表的以一个元素， 它可以是一个原子也可以是一个子表。  </li>
+<li>表尾（是一个广义表）：除表头之外， 由其余元素构成的表。（若只有一个元素， 那么其为空表）。 </li>
+</ul>
+<h3 id="遗留的问题-1"><a href="#遗留的问题-1" class="headerlink" title="遗留的问题"></a>遗留的问题</h3><ol>
+<li>KMP算法的实现</li>
+</ol>
+<h2 id="第五章-树和二叉树"><a href="#第五章-树和二叉树" class="headerlink" title="第五章 树和二叉树"></a>第五章 树和二叉树</h2><h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><p><strong>树</strong>： 是n（n &gt;= 0）个结点的有限集， 它或为空树；或为非空树， 对于非空树T：</p>
+<ol>
+<li>有且仅有一个称之为根的结点。</li>
+<li>除根结点以外的其余结点可分为m(m &gt; 0) 个互不相交的有限集T1, T2, …, TM, 其中每一个集合本身又是一棵树， 并且称之为根的子树（SubTree）。</li>
+</ol>
+<p><strong>树的基本术语</strong></p>
+<ol>
+<li><strong>结点</strong>：树中的一个独立单元。包含一个数据元素及若干指向其子树的分支 。</li>
+<li><strong>结点的度</strong>： 结点拥有的子树数。（这个结点后继的个数）。</li>
+<li><strong>树的度</strong>： 树内各结点度的最大值。</li>
+<li><strong>叶子</strong>： 度为0的结点称为叶子结点或者终端结点。</li>
+<li><strong>非终端结点</strong>： 度不为0的结点称为非终端结点或者分支结点。 除根结点以外， 非终端结点也称为内部结点。</li>
+<li><strong>双亲和孩子</strong>： 结点的子树的根称为该结点的孩子， 相应地， 该结点称为孩子的双亲。</li>
+<li><strong>兄弟</strong>： 同一个双亲的孩子之间互称兄弟。</li>
+<li><strong>祖先</strong>： 从根到该结点所经分支上的所有结点。</li>
+<li><strong>子孙</strong>： 以某结点为根的子树中的任一结点都称为该结点的子孙。</li>
+<li><strong>层次</strong>： 结点的层次从根开始定义起， 根为第一层， 根的孩子为第二层。 树中任一结点的层次等于其双亲结点的层次加一。</li>
+<li><strong>堂兄弟</strong>： 双亲在同一层的结点互为堂兄弟。</li>
+<li><strong>树的深度</strong>： 树中结点的最大层次称为树的深度或高度。</li>
+<li><strong>有序树和无序树</strong>： 如果将树中结点的各子树看成从左到右是有次序的， 则称该树为有序树， 否则称为无序树。</li>
+<li><strong>森林</strong>： 是m(m &gt;= 0) 课互不相交的树的集合。</li>
+</ol>
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p><strong>二叉树</strong>：是n (n &gt;= 0) 个结点所构成的集合。对于非空树T：</p>
+<ol>
+<li>有且仅有一个称之为根的结点。</li>
+<li>除根结点外的其余结点分为两个互不相交的子集T1 和T2， 分别称为T的左子树和右子树。</li>
+</ol>
+<ul>
+<li><strong>二叉树与树的区别</strong><ol>
+<li>二叉树每个结点至多只有两棵子树。</li>
+<li>二叉树是有序树。</li>
+</ol>
+</li>
+<li><strong>二叉树的性质</strong><ol>
+<li>在二叉树的第i层上至多有2 ^ (i - 1) 个结点（i &gt;= 1）。</li>
+<li>深度为k的二叉树至多有2 ^ k - 1个结点。</li>
+<li>对任何一棵二叉树T， 如果其终端结点数为n0， 度为2的结点数为n2， 则n0 = n2 + 1。</li>
+</ol>
+</li>
+<li><em>证明*</em>：<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">设B为总分支数</span><br><span class="line">二叉树结点总数</span><br><span class="line">n = n0 + n1 + n2</span><br><span class="line">除了根结点外， 每一个结点都有一个分支进入则</span><br><span class="line">n = B + <span class="number">1</span></span><br><span class="line">由于这些分支是由度为<span class="number">1</span> 和度为<span class="number">2</span> 的结点射出的，所以</span><br><span class="line">B = n1 + <span class="number">2</span> * n2</span><br><span class="line">于是得</span><br><span class="line">n = n1 + <span class="number">2</span>* n2 + <span class="number">1</span></span><br><span class="line">所以</span><br><span class="line">n0 = n2 + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>对于任意一棵树</strong>：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">树的总结点个数为</span><br><span class="line">n = n1 + n2 + ... + nk</span><br><span class="line">除了根结点外， 每一个结点都有一个分支进入则</span><br><span class="line">n = B + <span class="number">1</span></span><br><span class="line">由于这些分支是由度为<span class="number">1</span> ， 度为<span class="number">2</span>， ...， 度为k的结点射出的， 所以</span><br><span class="line">B = n1 + <span class="number">2</span> * n2 + <span class="number">3</span> * n3 + ... + k * nk</span><br><span class="line">于是得</span><br><span class="line">n = n1 + <span class="number">2</span> * n2 + <span class="number">3</span> * n3 + ... + k * nk + <span class="number">1</span></span><br><span class="line">所以</span><br><span class="line">n0 = <span class="number">1</span> + n2 + <span class="number">2</span> * n3 + ... + (k - <span class="number">1</span>) * nk</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>满二叉树</strong>： 深度为k且含有2 ^ k - 1个结点的二叉树。</li>
+<li><strong>完全二叉树</strong>： 深度为k的， 有n个结点的二叉树， 当且仅当其每一个结点都与深度为k的满二叉树中编号从1 - n 一一对应时， 称为完全二叉树。<ul>
+<li><strong>特点</strong> </li>
+</ul>
+<ol>
+<li>叶子节点只可能在层次最大的两层上出现（第k层和第k - 1层）；</li>
+<li>对任一结点， 若其右分支下的子孙的最大层次为l， 则其左分支下的子孙的最大层次必为l 或 l + 1 。</li>
+</ol>
+</li>
+</ul>
+<ol start="4">
+<li>具有n个结点的完全二叉树的深度为 (向下取整)[log2 n]  + 1。</li>
+</ol>
+<h3 id="遍历二叉树和线索二叉树"><a href="#遍历二叉树和线索二叉树" class="headerlink" title="遍历二叉树和线索二叉树"></a>遍历二叉树和线索二叉树</h3><h4 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h4><ul>
+<li>前序（先序）遍历<ol>
+<li>访问根结点</li>
+<li>先序遍历左子树</li>
+<li>先序遍历右子树</li>
+</ol>
+</li>
+<li>中序遍历<ol>
+<li>中序遍历左子树</li>
+<li>访问根结点</li>
+<li>中序遍历右子树</li>
+</ol>
+</li>
+<li>后序遍历<ol>
+<li>后序遍历左子树</li>
+<li>后序遍历右子树</li>
+<li>访问根结点</li>
+</ol>
+</li>
+</ul>
+<p>表达式的前缀表示：波兰式。<br>表达式的后缀表示：逆波兰式。<br>表达式的中缀表示：中缀式。  </p>
+<p>如何根据中缀式写出波兰表达式和逆波兰表达式？<br><a href="https://solodance.top/2019/06/25/根据算数表达式（中缀式）求波兰表达式和逆波兰表达式/">相关博客链接</a></p>
+<h4 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h4><p><strong>构造中序线索二叉树</strong><br>在二叉树的线索链表上添加一个头结点，令其lchild 指向二叉树的根结点， rchild指向中序遍历时的最后一个节点；同时令二叉树中序遍历序列第一个节点的lchild和最后一个节点的rchild指向头结点。<br><strong>以结点p为根的子树中序线索化</strong>  </p>
+<ol>
+<li>若p非空， 左子树递归线索化</li>
+<li>若p的左孩子为空， 则给p加上左线索， 将其LTag置为1， 让p的左孩子指针指向pre（前驱）；否则将LTag置为0。</li>
+<li>若pre的右孩子为空，则给pre加上右线索， 将其LTag置为1， 让pre的右孩子指针指向p（后继）；否则将pre的LTag置为0；</li>
+<li>将pre指向刚访问过的结点p， 即pre = p。</li>
+<li>右子树递归线索化。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InThreading</span><span class="params">(BiThrTree p)</span></span>&#123;</span><br><span class="line">    <span class="comment">//pre为全局变量， 初始化时其右孩子指针为空， 便于在树的最左点开始建线索。</span></span><br><span class="line">    <span class="keyword">if</span> (p)&#123;</span><br><span class="line">        InThreading(p -&gt; lchild);</span><br><span class="line">        <span class="keyword">if</span> (!p-&gt;lchild)&#123; </span><br><span class="line">            p-&gt;LTag = <span class="number">1</span>;</span><br><span class="line">            p-&gt;lchild = pre;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            p-&gt;LTag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (!pre-&gt;rchild)&#123;</span><br><span class="line">            pre-&gt;RTag = <span class="number">1</span>;</span><br><span class="line">            pre-&gt;rchild = p;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            pre-&gt;RTag = <span class="number">1</span>;</span><br><span class="line">        pre = p;</span><br><span class="line">        InThreading(p-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>带头结点的二叉树中序线索化</strong>  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrderThreading</span><span class="params">(BiThrTree &amp;Thrt, BithrTree T)</span></span>&#123;</span><br><span class="line">    <span class="comment">//中序遍历二叉树T， 并将其中序线索化。 Thrt指向头结点</span></span><br><span class="line">    Thrt = <span class="keyword">new</span> BiThrNode;</span><br><span class="line">    Thrt-&gt;LTag = <span class="number">0</span>;</span><br><span class="line">    Thrt-&gt;RTag = <span class="number">1</span>;</span><br><span class="line">    Thrt-&gt;rchild = Thrt;</span><br><span class="line">    <span class="keyword">if</span> (!T)</span><br><span class="line">        Thrt-&gt;lchild = Thrt;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        Thrt-&gt;lchild=T;</span><br><span class="line">        pre = Thrt;</span><br><span class="line">        InThreading(T);</span><br><span class="line">        pre-&gt;rchild = Thrt;</span><br><span class="line">        pre-&gt;RTag = <span class="number">1</span>;</span><br><span class="line">        Thrt-&gt;rchild = pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>遍历线索二叉树</strong> </p>
+<ol>
+<li>在中序线索二叉树中查找<ul>
+<li>若p-&gt;LTag=1 ，则p的左链指向其前驱；</li>
+<li>若p-&gt;LTag=0 ，则说明p有左子树， 结点的前驱是遍历其左子树时最后访问的一个结点。</li>
+<li>若p-&gt;RTag=1， 则p的右链指向其后继；</li>
+<li>若p-&gt;RTag=0， 则说明p有右子树， 结点的后继是遍历其右子树时访问的第一个结点。</li>
+</ul>
+</li>
+<li>在先序线索二叉树中查找<ul>
+<li>若p-&gt;LTag=1， 则p的左链指向其前驱；</li>
+<li>若p-&gt;LTag=0， 则说明p有左子树， 此时p的前驱有两种情况：若*p是其双亲的左孩子， 则其双亲结点为其前驱；否则应该是其双亲的左子树上先序遍历的最后一个结点。</li>
+<li>若p-&gt;RTag=1， 则p的右链指向其后继；</li>
+<li>若p-&gt;RTag=0， 则说明p有右子树， *p的后继必为其左子树数（若存在）或右子树根。</li>
+</ul>
+</li>
+<li>在后序线索二叉树中查找<ul>
+<li>若p-&gt;LTag=1， 则p的左链指向其前驱；</li>
+<li>若p-&gt;LTag=0， 当p-&gt;RTag=0时， 则p的右链指示其前驱；若p-&gt;RTag=1时， 则p的左链指向其前驱；</li>
+<li>若p-&gt;RTag=1， 则p的右链指向其后继；</li>
+<li>查找其后继比较复杂，若<code>*p</code>是二叉树的根， 则其后继为空；若<code>*p</code>是其双亲的右孩子， 则其后继为双亲结点；若<code>*p</code>是其双亲上午左孩子， 且<code>*p</code>没有右兄弟，则其后继为双亲结点；若<code>*p</code>是其双亲的左孩子， 且<code>*p</code>有右兄弟，， 则其后继为双亲的右子树上按后序遍历列出的第一个结点。</li>
+</ul>
+</li>
+</ol>
+<h3 id="树和森林"><a href="#树和森林" class="headerlink" title="树和森林"></a>树和森林</h3><h4 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h4><ol>
+<li>双亲表示法</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>data</th>
+<th>parent</th>
+</tr>
+</thead>
+</table>
+<ol start="2">
+<li><p>孩子表示法</p>
+</li>
+<li><p>孩子兄弟法<br>又称二叉树表示法， 或二叉链表表示法， 即以二叉链表做树的存储结构。链表中结点的两个链域分别指向该节点的第一个孩子结点和下一个兄弟结点。</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>firstchild</th>
+<th>data</th>
+<th>nextsibling</th>
+</tr>
+</thead>
+</table>
+<h4 id="树与二叉树的转换"><a href="#树与二叉树的转换" class="headerlink" title="树与二叉树的转换"></a>树与二叉树的转换</h4><p>遵循左儿子右兄弟的原则。</p>
+<h4 id="树和森林的遍历"><a href="#树和森林的遍历" class="headerlink" title="树和森林的遍历"></a>树和森林的遍历</h4><p><strong>树的遍历</strong>  </p>
+<ul>
+<li>先根遍历树：先访问数的根结点， 然后依次先根遍历根的每棵子树。</li>
+<li>后根遍历树：先依次后根遍历每棵子树， 然后访问根结点。</li>
+</ul>
+</div><div class="post-copyright"><blockquote><p>原文作者: Mingfu Yan</p><p>原文链接: <a href="https://solodance.top/2020/06/26/数据结构笔记/">https://solodance.top/2020/06/26/数据结构笔记/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2020/06/26/%E6%A0%B9%E6%8D%AE%E7%AE%97%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88%E4%B8%AD%E7%BC%80%E5%BC%8F%EF%BC%89%E6%B1%82%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="pre">根据算数表达式（中缀式）求波兰表达式和逆波兰表达式</a><a href="/2020/06/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%9E%E9%AA%8C12%EF%BC%9A%20%E6%8E%92%E5%BA%8F/" class="next">数据结构实验12 ：排序</a></div><div id="comments"><div id="container"><script type="text/javascript" src="https://unpkg.com/gitalk/dist/gitalk.min.js?v=2.0.4"></script><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=2.0.4"></script><script>var gitalk = new Gitalk({
+  clientID: '96a865f28822a57d4345',
+  clientSecret: 'e30c2aee994dd988d3e3f8b0fcc6d42b05ce6bc2',
+  repo: 'blog-comment',
+  owner: 'mingfuyan',
+  admin: ['mingfuyan'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: false,
+  language: 'zh-CN',
+  pagerDirection: 'last'
+})
+gitalk.render('container')</script></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一章-绪论"><span class="toc-text">第一章 绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象数据类型"><span class="toc-text">抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-线性表"><span class="toc-text">第二章 线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#顺序表"><span class="toc-text">顺序表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链表"><span class="toc-text">链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#待解决的问题"><span class="toc-text">待解决的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三章-栈和队列"><span class="toc-text">第三章 栈和队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#栈-（后进先出的数据结构（Last-In-First-Out-LIFO））"><span class="toc-text">栈 （后进先出的数据结构（Last In First Out, LIFO））</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#队列-（先进先出的数据结构（First-In-First-Out-FIFO））"><span class="toc-text">队列 （先进先出的数据结构（First In First Out, FIFO））</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遗留的问题"><span class="toc-text">遗留的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四章-串、数组和广义表"><span class="toc-text">第四章 串、数组和广义表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#串（或字符串）"><span class="toc-text">串（或字符串）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#广义表"><span class="toc-text">广义表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遗留的问题-1"><span class="toc-text">遗留的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五章-树和二叉树"><span class="toc-text">第五章 树和二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#树"><span class="toc-text">树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树"><span class="toc-text">二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历二叉树和线索二叉树"><span class="toc-text">遍历二叉树和线索二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#遍历二叉树"><span class="toc-text">遍历二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线索二叉树"><span class="toc-text">线索二叉树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树和森林"><span class="toc-text">树和森林</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#树的存储结构"><span class="toc-text">树的存储结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#树与二叉树的转换"><span class="toc-text">树与二叉树的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#树和森林的遍历"><span class="toc-text">树和森林的遍历</span></a></li></ol></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%AE%A1%E8%92%9C%E5%AE%A2%20-%2044529%20The%20League%20of%20Sequence%20Designers(%E6%9E%84%E9%80%A0)/">计蒜客 - 44529 The League of Sequence Designers(构造)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%AE%A1%E8%92%9C%E5%AE%A2%20-%2044345%20I%20-%20Problem%20I.%20Journey(dp)/">计蒜客 - 44345 I - Problem I. Journey(dp).md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%AE%A1%E8%92%9C%E5%AE%A2%20-%2044284%20Safe%20Passage(%E8%B4%AA%E5%BF%83%E3%80%81%E6%80%9D%E7%BB%B4%E3%80%81dp)/">计蒜客 - 44284 Safe Passage(贪心、思维、dp).md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%AE%A1%E8%92%9C%E5%AE%A2%20-%2044280%20UnDetected(%E5%B9%B6%E6%9F%A5%E9%9B%86)/">计蒜客 - 44280 UnDetected(并查集).md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%AE%A1%E8%92%9C%E5%AE%A2%20-%2044158%20World%20Cup%20Fever(%E6%9C%80%E7%9F%AD%E8%B7%AF)/">计蒜客 - 44158 World Cup Fever(最短路)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%AE%A1%E8%92%9C%E5%AE%A2%20-%2044154%20Historical%20TV%20Remote%20Control%20(%E6%80%9D%E7%BB%B4)/">计蒜客 - 44154 Historical TV Remote Control (思维)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%AE%A1%E8%92%9C%E5%AE%A2%20-%2044141%20First%20Last%20Sorting(dp)/">计蒜客 - 44141 First Last Sorting(dp)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%AE%A1%E8%92%9C%E5%AE%A2%20-%2044120%20Circuit%20Counting(dp)/">计蒜客 - 44120 Circuit Counting(dp).md</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%A7%A3%E5%86%B3%E7%88%86%E6%A0%88%E9%97%AE%E9%A2%98%EF%BC%8C%E6%89%8B%E5%8A%A8%E5%8A%A0%E6%A0%88/">解决爆栈问题，手动加栈</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/26/%E8%A7%A3%E5%86%B3ShadowsocksR%201080%20%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/">解决ShadowsocksR 1080 端口被占用问题</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2019%E7%89%9B%E5%AE%A2%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B4%BE%E5%AF%B9/">2019牛客国庆集训派对</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/">2019牛客多校训练赛</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ACM%E5%B0%8F%E7%9F%A5%E8%AF%86/">ACM小知识</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/KMP/">KMP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Manacher/">Manacher</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Solo-Dance/">Solo_Dance</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/">acm小知识</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dfs/">dfs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/dp/">dp</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lca/">lca</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lis/">lis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/stl/">stl</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tarjan/">tarjan</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vps/">vps</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E5%88%86/">二分</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E5%88%86%E5%9B%BE/">二分图</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9B%BE%E8%AE%BA/">图论</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A6%99%E6%80%9D%E7%BB%B4/">奇妙思维</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/">实用技巧</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%BA%E5%8F%96%E6%B3%95/">尺取法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E7%BB%B4/">思维</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E7%BB%B4%E9%A2%98/">思维题</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E7%BB%93/">总结</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%89%BE%E8%A7%84%E5%BE%8B/">找规律</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">拓扑排序</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%80%E7%9F%AD%E8%B7%AF/">最短路</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%84%E9%80%A0/">构造</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A8%A1%E6%8B%9F/">模拟</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A8%A1%E6%9D%BF%E9%A2%98/">模板题</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%8E%84%E5%AD%A6%E9%A2%98/">玄学题</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%88%90%E6%A0%91/">生成树</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A9%E9%98%B5/">矩阵</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/">矩阵快速幂</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/">解题报告</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B4%AA%E5%BF%83/">贪心</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%80%92%E6%8E%A8/">递推</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/">零碎小知识</a><span class="category-list-count">9</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/acm/" style="font-size: 15px;">acm</a> <a href="/tags/%E7%BB%9D%E5%AF%B9%E5%80%BC%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7/" style="font-size: 15px;">绝对值的特殊性</a> <a href="/tags/%E6%80%9D%E7%BB%B4/" style="font-size: 15px;">思维</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E9%A2%98/" style="font-size: 15px;">思维题</a> <a href="/tags/dfs/" style="font-size: 15px;">dfs</a> <a href="/tags/%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE/" style="font-size: 15px;">暴力枚举</a> <a href="/tags/2019%E7%89%9B%E5%AE%A2%E5%A4%9A%E6%A0%A1%E8%AE%AD%E7%BB%83%E8%B5%9B/" style="font-size: 15px;">2019牛客多校训练赛</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 15px;">单调栈</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 15px;">矩阵快速幂</a> <a href="/tags/Acm/" style="font-size: 15px;">Acm</a> <a href="/tags/dp/" style="font-size: 15px;">dp</a> <a href="/tags/%E8%BF%9E%E9%80%9A%E5%9D%97/" style="font-size: 15px;">连通块</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 15px;">并查集</a> <a href="/tags/%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2/" style="font-size: 15px;">记忆化搜索</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 15px;">贪心</a> <a href="/tags/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%85%A5%E8%BE%93%E5%87%BA/" style="font-size: 15px;">文件读入输出</a> <a href="/tags/acm%E5%B0%8F%E7%9F%A5%E8%AF%86/" style="font-size: 15px;">acm小知识</a> <a href="/tags/stl/" style="font-size: 15px;">stl</a> <a href="/tags/unique/" style="font-size: 15px;">unique</a> <a href="/tags/clion/" style="font-size: 15px;">clion</a> <a href="/tags/%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81/" style="font-size: 15px;">输出乱码</a> <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/" style="font-size: 15px;">小技巧</a> <a href="/tags/C-%E6%B5%81%E6%8E%A7%E5%88%B6%E5%87%BD%E6%95%B0/" style="font-size: 15px;">C++ 流控制函数</a> <a href="/tags/%E4%BA%A4%E4%BA%92%E9%A2%98/" style="font-size: 15px;">交互题</a> <a href="/tags/%E6%8A%BD%E5%B1%89%E5%8E%9F%E7%90%86/" style="font-size: 15px;">抽屉原理</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 15px;">构造</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 15px;">模拟</a> <a href="/tags/Manacher/" style="font-size: 15px;">Manacher</a> <a href="/tags/%E6%AC%A1%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 15px;">次小生成树</a> <a href="/tags/%E6%B0%B4%E9%A2%98/" style="font-size: 15px;">水题</a> <a href="/tags/%E6%89%93%E8%A1%A8/" style="font-size: 15px;">打表</a> <a href="/tags/%E6%89%BE%E8%A7%84%E5%BE%8B/" style="font-size: 15px;">找规律</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 15px;">最短路</a> <a href="/tags/dijkstra/" style="font-size: 15px;">dijkstra</a> <a href="/tags/lca/" style="font-size: 15px;">lca</a> <a href="/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 15px;">AC自动机</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E9%A2%98/" style="font-size: 15px;">模板题</a> <a href="/tags/%E7%8E%84%E5%AD%A6%E9%A2%98/" style="font-size: 15px;">玄学题</a> <a href="/tags/%E8%A1%A5%E5%9B%BE/" style="font-size: 15px;">补图</a> <a href="/tags/%E9%80%92%E6%8E%A8/" style="font-size: 15px;">递推</a> <a href="/tags/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 15px;">实用技巧</a> <a href="/tags/Jetbrains/" style="font-size: 15px;">Jetbrains</a> <a href="/tags/KMP/" style="font-size: 15px;">KMP</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 15px;">总结</a> <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" style="font-size: 15px;">二分图</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E7%8B%AC%E7%AB%8B%E9%9B%86/" style="font-size: 15px;">最大独立集</a> <a href="/tags/%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E9%80%86%E5%9B%BE/" style="font-size: 15px;">有向图的逆图</a> <a href="/tags/%E7%A7%8D%E7%B1%BB%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 15px;">种类并查集</a> <a href="/tags/%E5%B0%BA%E5%8F%96%E6%B3%95/" style="font-size: 15px;">尺取法</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 15px;">模板</a> <a href="/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/" style="font-size: 15px;">斐波那契</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86%E4%BC%98%E5%8C%96/" style="font-size: 15px;">并查集优化</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">拓扑排序</a> <a href="/tags/%E6%9C%89%E5%90%91%E5%9B%BE%E5%8E%BB%E7%8E%AF/" style="font-size: 15px;">有向图去环</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84dfs%E5%BA%8F%E5%88%97/" style="font-size: 15px;">二叉树的dfs序列</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 15px;">动态规划</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 15px;">数学</a> <a href="/tags/%E5%8D%9A%E5%BC%88/" style="font-size: 15px;">博弈</a> <a href="/tags/%E7%9F%A9%E9%98%B5/" style="font-size: 15px;">矩阵</a> <a href="/tags/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" style="font-size: 15px;">差分约束</a> <a href="/tags/%E9%9B%B6%E7%A2%8E%E5%B0%8F%E7%9F%A5%E8%AF%86/" style="font-size: 15px;">零碎小知识</a> <a href="/tags/c-11/" style="font-size: 15px;">c++11</a> <a href="/tags/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 15px;">二维前缀和</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96/" style="font-size: 15px;">离散化</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 15px;">线段树</a> <a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 15px;">差分</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 15px;">二分</a> <a href="/tags/ubuntu/" style="font-size: 15px;">ubuntu</a> <a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/" style="font-size: 15px;">双系统</a> <a href="/tags/stl-map/" style="font-size: 15px;">stl-map</a> <a href="/tags/map/" style="font-size: 15px;">map</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%8C%83%E5%9B%B4/" style="font-size: 15px;">数据类型范围</a> <a href="/tags/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" style="font-size: 15px;">文件操作</a> <a href="/tags/c%EF%BC%8Cc-%E5%A4%B4%E6%96%87%E4%BB%B6/" style="font-size: 15px;">c，c++头文件</a> <a href="/tags/%E5%AF%B9%E6%8B%8D/" style="font-size: 15px;">对拍</a> <a href="/tags/int128/" style="font-size: 15px;">int128</a> <a href="/tags/lis/" style="font-size: 15px;">lis</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/vps/" style="font-size: 15px;">vps</a> <a href="/tags/codeblocks/" style="font-size: 15px;">codeblocks</a> <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/" style="font-size: 15px;">小知识</a> <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" style="font-size: 15px;">优先队列</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15px;">数据结构</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E6%96%B9%E6%B3%95/" style="font-size: 15px;">数学方法</a> <a href="/tags/Solo-Dance/" style="font-size: 15px;">Solo_Dance</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 15px;">随笔</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 15px;">题解</a> <a href="/tags/spfa/" style="font-size: 15px;">spfa</a> <a href="/tags/%E5%B8%A6%E6%9D%83%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 15px;">带权并查集</a> <a href="/tags/kuangbin%E5%B8%A6%E4%BD%A0%E9%A3%9E/" style="font-size: 15px;">kuangbin带你飞</a> <a href="/tags/tarjan/" style="font-size: 15px;">tarjan</a> <a href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" style="font-size: 15px;">强连通分量</a> <a href="/tags/%E6%9F%A5%E6%89%BE/" style="font-size: 15px;">查找</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">笔记</a> <a href="/tags/%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 15px;">波兰表达式</a> <a href="/tags/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 15px;">逆波兰表达式</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 15px;">二叉树</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E6%9E%84%E9%80%A0/" style="font-size: 15px;">矩阵构造</a> <a href="/tags/%E7%9F%A9%E5%BD%A2%E7%9B%B8%E4%BA%A4/" style="font-size: 15px;">矩形相交</a> <a href="/tags/%E7%BB%99%E5%87%BA%E4%B8%89%E8%A7%92%E5%BD%A2%E4%B8%89%E7%82%B9%E5%9D%90%E6%A0%87%E6%B1%82%E9%9D%A2%E7%A7%AF/" style="font-size: 15px;">给出三角形三点坐标求面积</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">123</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://github.com/mingfuyan" title="Mingfu Yan's github" target="_blank">Mingfu Yan's github</a><ul></ul><a href="https://www.hs-lotus.top/" title="Yokoshimaの" target="_blank">Yokoshimaの</a><ul></ul><a href="https://sdnuqp.cn/" title="浮生若梦" target="_blank">浮生若梦</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">Mingfu Yan.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-144281427-1','auto');ga('send','pageview');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?674916fe5d7eb3ba83213562bee9f214";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script>(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();</script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
